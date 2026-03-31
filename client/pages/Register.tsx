@@ -1,0 +1,315 @@
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import Layout from "@/components/Layout";
+import { AlertCircle, Loader2 } from "lucide-react";
+
+export default function Register() {
+  const navigate = useNavigate();
+  const [step, setStep] = useState(1);
+  const [role, setRole] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    description: "",
+    location: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleRoleSelect = (selectedRole: string) => {
+    setRole(selectedRole);
+    setStep(2);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    // Validation
+    if (!formData.name || !formData.email || !formData.password) {
+      setError("Please fill in all required fields");
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          role: role,
+          ...(role === "institution" && {
+            description: formData.description,
+            location: formData.location,
+          }),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message || "Registration failed");
+        return;
+      }
+
+      // Store token and user info
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("userRole", data.role);
+      localStorage.setItem("userId", data.userId);
+
+      // Redirect based on role
+      if (data.role === "admin") {
+        navigate("/admin");
+      } else if (data.role === "institution") {
+        navigate("/institution");
+      } else {
+        navigate("/donator");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Layout>
+      <div className="khair-container min-h-screen flex items-center justify-center py-12">
+        <div className="w-full max-w-md">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold mb-2">Join KhairConnect</h1>
+            <p className="text-muted-foreground">
+              Create an account to get started
+            </p>
+          </div>
+
+          {step === 1 ? (
+            // Step 1: Role Selection
+            <div className="space-y-4">
+              <p className="font-medium">Choose your role</p>
+
+              {[
+                {
+                  icon: "👑",
+                  title: "Admin",
+                  description: "Manage institutions and oversee the platform",
+                  value: "admin",
+                },
+                {
+                  icon: "🏢",
+                  title: "Institution",
+                  description: "Post needs and manage donor rotations",
+                  value: "institution",
+                },
+                {
+                  icon: "🤝",
+                  title: "Donator",
+                  description: "Join institutions and donate on your turn",
+                  value: "donator",
+                },
+              ].map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => handleRoleSelect(option.value)}
+                  className="w-full p-4 rounded-lg border-2 border-border hover:border-primary transition-colors text-left hover:bg-primary/5"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">{option.icon}</span>
+                    <div>
+                      <h3 className="font-semibold">{option.title}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        {option.description}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              ))}
+
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                Already have an account?{" "}
+                <Link to="/login" className="text-primary hover:underline">
+                  Sign In
+                </Link>
+              </p>
+            </div>
+          ) : (
+            // Step 2: Form
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="flex gap-4 mb-6">
+                <button
+                  type="button"
+                  onClick={() => setStep(1)}
+                  className="text-primary hover:underline text-sm font-medium"
+                >
+                  ← Change Role
+                </button>
+              </div>
+
+              {error && (
+                <div className="flex gap-3 p-4 rounded-lg bg-destructive/10 border border-destructive/20">
+                  <AlertCircle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+                  <p className="text-sm text-destructive">{error}</p>
+                </div>
+              )}
+
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  Full Name *
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  Email Address *
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+
+              {/* Institution-specific fields */}
+              {role === "institution" && (
+                <>
+                  <div>
+                    <label htmlFor="description" className="block text-sm font-medium mb-2">
+                      Description
+                    </label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      value={formData.description}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="Tell us about your institution..."
+                      rows={4}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="location" className="block text-sm font-medium mb-2">
+                      Location
+                    </label>
+                    <input
+                      id="location"
+                      type="text"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="City, Country"
+                    />
+                  </div>
+                </>
+              )}
+
+              {/* Password */}
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium mb-2">
+                  Password *
+                </label>
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="••••••••"
+                  required
+                />
+                <p className="text-xs text-muted-foreground mt-1">
+                  Minimum 6 characters
+                </p>
+              </div>
+
+              {/* Confirm Password */}
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium mb-2">
+                  Confirm Password *
+                </label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-2 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={loading}
+                className="khair-button-primary w-full disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Creating account...
+                  </>
+                ) : (
+                  `Create ${role.charAt(0).toUpperCase() + role.slice(1)} Account`
+                )}
+              </button>
+
+              {/* Sign In Link */}
+              <p className="text-center text-sm text-muted-foreground">
+                Already have an account?{" "}
+                <Link to="/login" className="text-primary hover:underline">
+                  Sign In
+                </Link>
+              </p>
+            </form>
+          )}
+        </div>
+      </div>
+    </Layout>
+  );
+}
