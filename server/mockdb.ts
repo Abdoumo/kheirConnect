@@ -29,7 +29,7 @@ class MockDB {
 
   constructor() {
     this.initializeAdminUser();
-    this.seedInstitutions();
+    // this.seedInstitutions();
   }
 
   private generateId(): string {
@@ -49,89 +49,7 @@ class MockDB {
     });
   }
 
-  private seedInstitutions() {
-    // Create institutional users
-    const institution1UserId = this.generateId();
-    const institution2UserId = this.generateId();
-    const institution3UserId = this.generateId();
-
-    // Add institutional users
-    [
-      {
-        _id: institution1UserId,
-        name: "Hope Foundation",
-        email: "contact@hopefoundation.org",
-        password: bcryptjs.hashSync("HopePass123", 10),
-        role: "institution" as const,
-        createdAt: new Date(),
-      },
-      {
-        _id: institution2UserId,
-        name: "Community Care Center",
-        email: "info@communitycare.org",
-        password: bcryptjs.hashSync("CarePass123", 10),
-        role: "institution" as const,
-        createdAt: new Date(),
-      },
-      {
-        _id: institution3UserId,
-        name: "Education for All",
-        email: "support@educationforall.org",
-        password: bcryptjs.hashSync("EducatePass123", 10),
-        role: "institution" as const,
-        createdAt: new Date(),
-      },
-    ].forEach((user) => {
-      this.users.set(user._id, user);
-    });
-
-    // Add institutions
-    const institutions = [
-      {
-        _id: this.generateId(),
-        userId: institution1UserId,
-        name: "Hope Foundation",
-        description:
-          "Providing support and relief to underprivileged communities. We focus on healthcare, education, and emergency relief.",
-        location: "Cairo, Egypt",
-        approved: true,
-        donators: [],
-        pendingDonators: [],
-        rotationIndex: 0,
-        createdAt: new Date(),
-      },
-      {
-        _id: this.generateId(),
-        userId: institution2UserId,
-        name: "Community Care Center",
-        description:
-          "A grassroots organization dedicated to community development and social welfare. We organize food drives, health camps, and educational programs.",
-        location: "Alexandria, Egypt",
-        approved: true,
-        donators: [],
-        pendingDonators: [],
-        rotationIndex: 0,
-        createdAt: new Date(),
-      },
-      {
-        _id: this.generateId(),
-        userId: institution3UserId,
-        name: "Education for All",
-        description:
-          "Committed to providing quality education to underprivileged children. We provide scholarships, learning materials, and mentorship programs.",
-        location: "Giza, Egypt",
-        approved: true,
-        donators: [],
-        pendingDonators: [],
-        rotationIndex: 0,
-        createdAt: new Date(),
-      },
-    ];
-
-    institutions.forEach((inst) => {
-      this.institutions.set(inst._id, inst);
-    });
-  }
+  
 
   // User methods
   async findUserByEmail(email: string): Promise<MockUser | null> {

@@ -11,6 +11,8 @@ interface Institution {
   location: string;
   donatorCount: number;
   createdAt: string;
+  hasApplied?: boolean;
+  isApproved?: boolean;
 }
 
 export default function BrowseInstitutions() {
@@ -19,7 +21,6 @@ export default function BrowseInstitutions() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [applyingInstitutionId, setApplyingInstitutionId] = useState<string | null>(null);
-  const [appliedInstitutions, setAppliedInstitutions] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -39,9 +40,9 @@ export default function BrowseInstitutions() {
       const response = await fetch("/api/institutions", {
         headers: { Authorization: `Bearer ${token}` },
       });
-
       if (response.ok) {
         const data = await response.json();
+        console.log("Fetch institutions response:", data);
         setInstitutions(data);
       }
     } catch (err) {
@@ -49,7 +50,8 @@ export default function BrowseInstitutions() {
     } finally {
       setLoading(false);
     }
-  };
+  };  
+// 
 
   const handleApplyToJoin = async (institutionId: string) => {
     try {
@@ -61,7 +63,8 @@ export default function BrowseInstitutions() {
       });
 
       if (response.ok) {
-        setAppliedInstitutions((prev) => new Set([...prev, institutionId]));
+        // Refresh institutions list to show updated status
+        await fetchInstitutions();
       } else {
         const error = await response.json();
         console.error("Failed to apply:", error);
@@ -159,7 +162,7 @@ export default function BrowseInstitutions() {
                 {/* CTA Button */}
                 <button
                   onClick={() => handleApplyToJoin(institution._id)}
-                  disabled={applyingInstitutionId === institution._id || appliedInstitutions.has(institution._id)}
+                  disabled={applyingInstitutionId === institution._id || institution.hasApplied || institution.isApproved}
                   className="khair-button-primary w-full text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {applyingInstitutionId === institution._id ? (
@@ -167,7 +170,9 @@ export default function BrowseInstitutions() {
                       <Loader2 className="h-4 w-4 animate-spin inline mr-2" />
                       Applying...
                     </>
-                  ) : appliedInstitutions.has(institution._id) ? (
+                  ) : institution.isApproved ? (
+                    "Approved ✓"
+                  ) : institution.hasApplied ? (
                     "Applied ✓"
                   ) : (
                     "Apply to Join"

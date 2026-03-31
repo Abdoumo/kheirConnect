@@ -50,6 +50,7 @@ export default function InstitutionDashboard() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log("Fetched institution:", data);
         setInstitution(data);
       }
     } catch (err) {

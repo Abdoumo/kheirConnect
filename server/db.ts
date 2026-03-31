@@ -21,13 +21,11 @@ export async function connectDB() {
 
     // Seed admin account and institutions if they don't exist
     await seedAdminAccount();
-    await seedInstitutions();
+    // await seedInstitutions();
   } catch (error) {
-    console.error("Failed to connect to MongoDB. Using in-memory database for development.", error);
-    console.log("You can still use the frontend. To enable database persistence, please set up MongoDB.");
-    // Don't throw - let the app continue with mock database
-    isConnected = false;
-    useMongoDb = false;
+    console.error("Failed to connect to MongoDB:", error);
+    console.error("MONGODB_URI:", process.env.MONGODB_URI);
+    throw new Error(`Database connection failed. Please ensure MongoDB is running at ${process.env.MONGODB_URI || "mongodb://localhost:27017/khairconnect"}`);
   }
 }
 

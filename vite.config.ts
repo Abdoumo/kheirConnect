@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { createServer } from "./server";
 
+
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -32,9 +34,11 @@ function expressPlugin(): Plugin {
     configureServer(server) {
       const app = createServer();
 
-      server.middlewares.stack.unshift({
-        route: "",
-        handle: app,
+      server.middlewares.use((req, res, next) => {
+        if (req.url?.startsWith("/api")) {
+          return app(req, res, next);
+        }
+        next();
       });
     },
   };

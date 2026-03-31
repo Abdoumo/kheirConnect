@@ -16,6 +16,7 @@ import {
   getMyInstitution,
   approveDonator,
   rejectDonator,
+  getDonatorApprovedInstitutions,
 } from "./routes/institutions";
 import {
   createWeeklyNeed,
@@ -80,6 +81,7 @@ export function createServer() {
   app.get("/api/institutions", authMiddleware, getApprovedInstitutions);
   app.get("/api/institutions/:institutionId", authMiddleware, getInstitutionById);
   app.post("/api/institutions/:institutionId/apply", authMiddleware, applyToJoinInstitution);
+  app.get("/api/donator/approved-institutions", authMiddleware, getDonatorApprovedInstitutions);
 
   // Institution dashboard routes
   app.get("/api/institution/my-institution", authMiddleware, getMyInstitution);
