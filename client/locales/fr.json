@@ -1,0 +1,501 @@
+{
+  "common": {
+    "home": "Accueil",
+    "login": "Se connecter",
+    "register": "Registre",
+    "logout": "Déconnexion",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "confirm": "Confirmer",
+    "back": "Dos",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "yes": "Oui",
+    "no": "Non",
+    "goHome": "Retour à la Accueil",
+    "backToDashboard": "Retour au tableau de bord",
+    "start": "Commencer",
+    "signIn": "Se connecter"
+  },
+  "layout": {
+    "brand": "Wasstet khir",
+    "tagline": "Coordonner les dons à des fins caritatives grâce à une rotation hebdomadaire et à un engagement communautaire.",
+    "navigation": {
+      "home": "Accueil",
+      "login": "Se connecter",
+      "register": "Registre",
+      "adminDashboard": "Tableau de bord d'administration",
+      "institutionDashboard": "Tableau de bord de l'établissement",
+      "donatorDashboard": "Tableau de bord des donateurs"
+    },
+    "footer": {
+      "platform": "Plate-forme",
+      "resources": "Ressources",
+      "legal": "Légal",
+      "links": [
+        "Accueil",
+        "Registre",
+        "Documentation",
+        "Soutien",
+        "politique de confidentialité",
+        "Conditions d'utilisation"
+      ],
+      "copyright": "© {{year}} Wasstet khir. ",
+      "tagline": "Bâtir des communautés grâce à la coordination caritative."
+    }
+  },
+  "home": {
+    "hero": {
+      "emoji": "🌟",
+      "title": "Bienvenue à Wasstet Khir",
+      "subtitle": "Coordonner les dons avec un objectif",
+      "description": "Une plateforme moderne qui relie les donateurs aux institutions caritatives grâce à un système de rotation hebdomadaire équitable, organisé et durable.",
+      "cta": "Commencer",
+      "ctaAlt": "Se connecter"
+    },
+    "features": {
+      "title": "Fonctionnalités principales",
+      "subtitle": "Tout ce dont vous avez besoin pour coordonner efficacement les dons de bienfaisance",
+      "items": [
+        {
+          "title": "Système de rotation équitable",
+          "description": "Planification intelligente des dons"
+        },
+        {
+          "title": "Notifications intelligentes",
+          "description": "Ne rate jamais ton tour"
+        },
+        {
+          "title": "Gestion des établissements",
+          "description": "Coordination facile des donateurs"
+        },
+        {
+          "title": "Suivi des dons",
+          "description": "Surveillez votre impact"
+        },
+        {
+          "title": "Accès basé sur les rôles",
+          "description": "Tableaux de bord sur mesure"
+        },
+        {
+          "title": "Approbation instantanée",
+          "description": "Processus de validation rapide"
+        }
+      ]
+    },
+    "map": {
+      "title": "Trouver des établissements près de chez vous",
+      "description": "Explorez toutes les institutions caritatives enregistrées sur la carte et rejoignez celles de votre région"
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "subtitle": "Le système de rotation des dons expliqué",
+      "steps": [
+        "Registres des institutions",
+        "L'administrateur approuve",
+        "Les donateurs se joignent",
+        "Publier les besoins hebdomadaires",
+        "Tour à attribution automatique",
+        "Le donateur confirme"
+      ]
+    },
+    "userRoles": {
+      "title": "Rôles des utilisateurs",
+      "subtitle": "Choisissez votre rôle et lancez-vous",
+      "institution": {
+        "title": "Institution",
+        "description": "Gérer les donateurs et coordonner les dons hebdomadaires",
+        "features": [
+          "Gérer les candidatures des donateurs",
+          "Publier les besoins hebdomadaires",
+          "Attribuer des tours de don",
+          "Suivre l'historique"
+        ]
+      },
+      "donator": {
+        "title": "Donateur",
+        "description": "Rejoignez des institutions et faites un don pendant les tours qui vous sont assignés",
+        "features": [
+          "Parcourir les établissements",
+          "Postuler pour rejoindre",
+          "Voir votre horaire de tour",
+          "Confirmer les dons"
+        ]
+      },
+      "cta": "Rejoignez-nous en tant que {{role}}"
+    },
+    "security": {
+      "title": "Sécurisé et digne de confiance",
+      "subtitle": "Vos données et transactions sont protégées par des mesures de sécurité conformes aux normes de l'industrie.",
+      "features": [
+        "Mots de passe cryptés",
+        "Authentification JWT",
+        "Accès basé sur les rôles"
+      ]
+    },
+    "cta": {
+      "title": "Prêt à avoir un impact ?",
+      "description": "Rejoignez Wasstet Khir aujourd'hui et faites partie d'une communauté engagée dans des dons caritatifs coordonnés.",
+      "button": "Commencez votre voyage"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Content de te revoir",
+      "subtitle": "Connectez-vous à votre compte Wasstet khir",
+      "demoLabel": "Informations d'identification de démonstration :",
+      "email": "E-mail:",
+      "password": "Mot de passe:",
+      "emailPlaceholder": "Adresse email",
+      "passwordPlaceholder": "Mot de passe",
+      "submitButton": "Se connecter",
+      "signingIn": "Connexion...",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "createAccount": "Créer un compte",
+      "backToHome": "Retour à la Accueil",
+      "error": "La connexion a échoué",
+      "errorMessage": "Une erreur s'est produite. "
+    },
+    "register": {
+      "title": "Rejoignez Wasstet khir",
+      "subtitle": "Créez un compte pour commencer",
+      "chooseRole": "Choisissez votre rôle",
+      "institution": {
+        "title": "Institution",
+        "description": "Afficher les besoins et gérer les rotations des donateurs"
+      },
+      "donator": {
+        "title": "Donateur",
+        "description": "Rejoignez des institutions et faites un don à votre tour"
+      },
+      "haveAccount": "Vous avez déjà un compte ?",
+      "signIn": "Se connecter",
+      "changeRole": "← Changer de rôle",
+      "form": {
+        "fullName": "Nom et prénom *",
+        "email": "Adresse e-mail *",
+        "description": "Description",
+        "location": "Emplacement",
+        "password": "Mot de passe *",
+        "passwordHint": "Minimum 6 caractères",
+        "institutionSubmit": "Créer un compte institutionnel",
+        "donatorSubmit": "Créer un compte donateur"
+      },
+      "validation": {
+        "fillAllFields": "Veuillez remplir tous les champs obligatoires",
+        "passwordMismatch": "Les mots de passe ne correspondent pas",
+        "passwordLength": "Le mot de passe doit contenir au moins 6 caractères"
+      },
+      "error": "L'inscription a échoué",
+      "errorMessage": "Une erreur s'est produite. "
+    }
+  },
+  "dashboard": {
+    "admin": {
+      "title": "Tableau de bord d'administration",
+      "subtitle": "Gérer les institutions et superviser la plateforme",
+      "stats": {
+        "totalInstitutions": "Total des établissements",
+        "approved": "Approuvé",
+        "pending": "En attente"
+      },
+      "institutions": {
+        "pending": "En attente",
+        "approved": "Approuvé",
+        "all": "Tous",
+        "noPending": "Aucune institution en attente",
+        "noApproved": "Aucune institution agréée",
+        "noInstitutions": "Aucune institution pour l'instant",
+        "registered": "Inscrit: {{date}}",
+        "approveButton": "Approuver",
+        "rejectButton": "Rejeter"
+      }
+    },
+    "institution": {
+      "title": "Tableau de bord de l'établissement",
+      "subtitle": "Gérez vos donateurs et coordonnez les dons hebdomadaires",
+      "location": "Emplacement",
+      "editOnMap": "Modifier sur la carte",
+      "setLocation": "Définir l'emplacement de l'établissement",
+      "coordinates": "Coordonnées : {{lat}}, {{lng}}",
+      "stats": {
+        "activeDonators": "Donateurs actifs",
+        "pendingApplications": "Demandes en attente",
+        "thisWeekTurn": "C'est au tour de cette semaine",
+        "totalDonations": "Total des dons"
+      },
+      "sections": {
+        "pendingApplications": {
+          "title": "Demandes en attente",
+          "subtitle": "Afficher et approuver les demandes de donateurs"
+        },
+        "activeDonators": "Donateurs actifs",
+        "weeklyNeeds": {
+          "title": "Besoins hebdomadaires",
+          "subtitle": "Publiez et gérez vos besoins en dons hebdomadaires"
+        },
+        "donationTurns": {
+          "title": "Les dons tournent",
+          "subtitle": "Attribuer et suivre les tours de rotation des dons"
+        },
+        "reports": {
+          "title": "Rapports",
+          "subtitle": "Afficher l'historique et les analyses des dons"
+        },
+        "comingSoon": "À venir"
+      }
+    },
+    "donator": {
+      "title": "Tableau de bord des donateurs",
+      "subtitle": "Rejoignez des institutions et faites un don lors de vos tours prévus",
+      "stats": {
+        "joinedInstitutions": "Institutions rejointes",
+        "pendingApplications": "Demandes en attente",
+        "nextTurn": "Tour suivant",
+        "totalDonations": "Total des dons"
+      },
+      "sections": {
+        "browseInstitutions": {
+          "title": "Parcourir les établissements",
+          "subtitle": "Découvrez et postulez pour rejoindre des institutions caritatives"
+        },
+        "myTurnSchedule": {
+          "title": "Mon horaire de tour",
+          "subtitle": "Voyez quand ce sera votre tour de faire un don"
+        },
+        "confirmDonations": {
+          "title": "Confirmer les dons",
+          "subtitle": "Acceptez les tours et confirmez la fin du don"
+        },
+        "donationHistory": {
+          "title": "Historique des dons",
+          "subtitle": "Consultez vos enregistrements de dons et leur impact"
+        }
+      },
+      "welcome": {
+        "title": "Bienvenue à Wasstet khir",
+        "description": "Votre tableau de bord des donateurs est prêt ! ",
+        "checkBack": "Revenez bientôt pour découvrir toutes les fonctionnalités qui vous aideront à faire la différence."
+      }
+    }
+  },
+  "donations": {
+    "confirm": {
+      "title": "Confirmer les dons",
+      "notApproved": "Vous n’avez encore été approuvé dans aucune institution. ",
+      "currentNeeds": "Besoins actuels",
+      "noNeeds": "Aucun besoin actuel spécifié",
+      "urgencyLabel": {
+        "regular": "Régulier",
+        "urgent": "Urgent"
+      },
+      "modal": {
+        "title": "Comment souhaiteriez-vous faire un don ?",
+        "donateAll": {
+          "label": "Faites don de tous les objets",
+          "description": "Fournissez la liste complète :"
+        },
+        "donateSpecific": {
+          "label": "Faire don d'objets spécifiques",
+          "description": "Précisez ce que vous pouvez donner"
+        },
+        "whatWillDonate": "Qu'allez-vous donner ?",
+        "confirmButton": "Confirmer le don",
+        "cancelButton": "Annuler"
+      },
+      "decline": {
+        "title": "Es-tu sûr?",
+        "description": "Vous refusez de faire un don : {{title}}",
+        "reminder": "Tu ne veux pas d'Ajr ?",
+        "motivation": "Aider ceux qui en ont besoin apporte de grandes récompenses spirituelles (Ajr). ",
+        "reconsider": "Reconsidérer - je ferai un don",
+        "confirm": "Confirmer le refus"
+      },
+      "options": {
+        "canDo": "peut faire",
+        "cantDo": "je ne peux pas faire",
+        "change": "Changer la réponse"
+      }
+    },
+    "history": {
+      "title": "Historique et impact des dons",
+      "noHistory": "Pas d'historique de dons pour l'instant",
+      "noHistoryDescription": "Une fois que vous aurez accepté un don, il apparaîtra ici.",
+      "trackingInfo": "Les dons en cours et terminés sont suivis.",
+      "tabs": {
+        "completed": "Dons complétés",
+        "totalInstitutions": "Total des établissements"
+      },
+      "status": "Complété",
+      "whatNeeded": "Ce qu'il fallait :",
+      "whatsNeeded": "Ce qui est nécessaire :",
+      "weekLabel": "Semaine {{week}}",
+      "impact": {
+        "title": "Votre impact",
+        "description": "Merci d'avoir complété {{count}} don(s) ! "
+      }
+    },
+    "turns": {
+      "title": "Rotation des dons",
+      "thisWeekDonor": "Le donateur de la semaine",
+      "quickAssign": "Attribution rapide du prochain tour",
+      "rotationHistory": "Historique des rotations",
+      "noDonators": "Aucun donateur actif pour l'instant. ",
+      "status": {
+        "pending": "En attente",
+        "accepted": "Accepté",
+        "completed": "Complété",
+        "declined": "Refusé"
+      }
+    }
+  },
+  "institutions": {
+    "browse": {
+      "title": "Parcourir les établissements",
+      "subtitle": "Trouvez et postulez pour rejoindre des institutions caritatives",
+      "search": "Recherchez par nom, description ou emplacement...",
+      "noInstitutions": "Aucune institution disponible pour l'instant",
+      "noResults": "Aucune institution ne correspond à votre recherche",
+      "location": "Localisation non précisée",
+      "noDescription": "Aucune description fournie",
+      "donorCount": "{{count}} donateur(s)",
+      "howItWorks": {
+        "title": "Comment ça marche",
+        "description": "Parcourez les institutions approuvées, sélectionnez celle qui vous intéresse et postulez pour rejoindre..."
+      },
+      "actions": {
+        "apply": "Postuler pour rejoindre",
+        "applying": "Candidature...",
+        "approved": "Approuvé ✓",
+        "applied": "Appliqué ✓"
+      }
+    },
+    "map": {
+      "title": "Carte des établissements",
+      "loading": "Chargement de la carte...",
+      "noInstitutions": "Aucune institution à afficher pour le moment"
+    }
+  },
+  "components": {
+    "weeklyNeeds": {
+      "title": "Besoins hebdomadaires",
+      "addButton": "Ajouter un besoin",
+      "editButton": "Modifier le besoin hebdomadaire",
+      "createButton": "Créer un besoin hebdomadaire",
+      "form": {
+        "title": "Titre *",
+        "description": "Description *",
+        "urgency": "Niveau d'urgence *",
+        "regular": "Quotidien (régulier)",
+        "urgent": "Urgent",
+        "saving": "Économie...",
+        "updateButton": "Besoin de mise à jour",
+        "createButton": "Créer un besoin",
+        "cancelButton": "Annuler"
+      },
+      "empty": "Aucun besoin hebdomadaire affiché pour l'instant. ",
+      "labels": {
+        "urgent": "🔴 Urgent",
+        "regular": "🔵 Quotidien"
+      },
+      "actions": {
+        "edit": "Modifier",
+        "delete": "Supprimer"
+      }
+    },
+    "myDonationTurn": {
+      "title": "Mon tour de don",
+      "noTurn": "Vous n'avez pas de tour de don prévu. ",
+      "yourTurnAt": "À votre tour",
+      "week": "Semaine",
+      "institutionNeeds": "Besoins de l'établissement cette semaine",
+      "status": "Statut",
+      "awaitingResponse": "En attente de votre réponse",
+      "accepted": "Accepté",
+      "question": "Ferez-vous un don cette semaine ?",
+      "actions": {
+        "yes": "Oui, je ferai un don",
+        "no": "Je ne peux pas faire un don"
+      },
+      "declineInfo": "Si vous refusez, votre tour sera automatiquement transmis au prochain donateur.",
+      "howItWorks": {
+        "title": "Comment fonctionne la rotation",
+        "steps": [
+          "Vous faites partie d'une rotation avec d'autres donateurs",
+          "Quand ce sera votre tour, vous recevrez une notification",
+          "Vous pouvez accepter de faire un don ou refuser de sauter",
+          "Si vous refusez, cela passe automatiquement au prochain donateur",
+          "La rotation continue jusqu'à ce que tous les donateurs terminent leur tour"
+        ]
+      }
+    },
+    "donationTurns": {
+      "title": "Rotation des dons",
+      "thisWeekDonor": "Le donateur de la semaine",
+      "quickAssign": "Attribution rapide du prochain tour",
+      "rotationHistory": "Historique des rotations",
+      "noDonators": "Aucun donateur actif pour l'instant. ",
+      "status": {
+        "pending": "En attente",
+        "accepted": "Accepté",
+        "completed": "Complété",
+        "declined": "Refusé"
+      }
+    },
+    "locationPicker": {
+      "clickToSelect": "Cliquez sur la carte pour sélectionner l'emplacement",
+      "selectedLocation": "Emplacement sélectionné",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "saveButton": "Enregistrer l'emplacement",
+      "saving": "Économie...",
+      "error": "Erreur lors de l'enregistrement de l'emplacement"
+    },
+    "institutionWeeklyNeeds": {
+      "title": "Besoins actuels",
+      "urgent": "🔴 Urgent",
+      "regular": "🔵 Régulier"
+    }
+  },
+  "errors": {
+    "404": {
+      "code": "404",
+      "title": "Oups ! ",
+      "goHome": "Retour à la Accueil"
+    },
+    "generic": "Quelque chose s'est mal passé. ",
+    "network": "Erreur réseau. ",
+    "unauthorized": "Vous n'êtes pas autorisé à effectuer cette action."
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire",
+    "email": "S'il vous plaît, mettez une adresse email valide",
+    "minLength": "Doit être au moins {{min}} personnages",
+    "maxLength": "Ne doit pas dépasser {{max}} personnages",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "invalidPassword": "Le mot de passe doit contenir au moins une lettre majuscule, une lettre minuscule et un chiffre"
+  },
+  "dates": {
+    "format": "fr-US",
+    "months": [
+      "Janvier",
+      "Février",
+      "Mars",
+      "Avril",
+      "Peut",
+      "Juin",
+      "Juillet",
+      "Août",
+      "Septembre",
+      "Octobre",
+      "Novembre",
+      "Décembre"
+    ]
+  }
+}

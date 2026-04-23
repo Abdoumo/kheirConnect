@@ -1,0 +1,490 @@
+{
+  "common": {
+    "home": "Home",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "goHome": "Return to Home",
+    "backToDashboard": "Back to Dashboard",
+    "start": "Get Started",
+    "signIn": "Sign In"
+  },
+  "layout": {
+    "brand": "Wasstet khir",
+    "tagline": "Coordinating donations for charitable impact through weekly rotation and community engagement.",
+    "navigation": {
+      "home": "Home",
+      "login": "Login",
+      "register": "Register",
+      "adminDashboard": "Admin Dashboard",
+      "institutionDashboard": "Institution Dashboard",
+      "donatorDashboard": "Donator Dashboard"
+    },
+    "footer": {
+      "platform": "Platform",
+      "resources": "Resources",
+      "legal": "Legal",
+      "links": ["Home", "Register", "Documentation", "Support", "Privacy Policy", "Terms of Service"],
+      "copyright": "© {{year}} Wasstet khir. All rights reserved.",
+      "tagline": "Building communities through charitable coordination."
+    }
+  },
+  "home": {
+    "hero": {
+      "emoji": "🌟",
+      "title": "Welcome to Wasstet Khir",
+      "subtitle": "Coordinate Donations with Purpose",
+      "description": "A modern platform that connects donors with charitable institutions through fair, organized, and sustainable weekly rotation system.",
+      "cta": "Get Started",
+      "ctaAlt": "Sign In"
+    },
+    "features": {
+      "title": "Core Features",
+      "subtitle": "Everything you need to coordinate charitable donations efficiently",
+      "items": [
+        {
+          "title": "Fair Rotation System",
+          "description": "Smart donation scheduling"
+        },
+        {
+          "title": "Smart Notifications",
+          "description": "Never miss your turn"
+        },
+        {
+          "title": "Institution Management",
+          "description": "Easy donor coordination"
+        },
+        {
+          "title": "Donation Tracking",
+          "description": "Monitor your impact"
+        },
+        {
+          "title": "Role-Based Access",
+          "description": "Tailored dashboards"
+        },
+        {
+          "title": "Instant Approval",
+          "description": "Quick validation process"
+        }
+      ]
+    },
+    "map": {
+      "title": "Find Institutions Near You",
+      "description": "Explore all registered charitable institutions on the map and join the ones in your area"
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "The donation rotation system explained",
+      "steps": [
+        "Institution Registers",
+        "Admin Approves",
+        "Donors Join",
+        "Post Weekly Needs",
+        "Auto-Assign Turn",
+        "Donor Confirms"
+      ]
+    },
+    "userRoles": {
+      "title": "User Roles",
+      "subtitle": "Choose your role and get started",
+      "institution": {
+        "title": "Institution",
+        "description": "Manage donors and coordinate weekly donations",
+        "features": [
+          "Manage donor applications",
+          "Post weekly needs",
+          "Assign donation turns",
+          "Track history"
+        ]
+      },
+      "donator": {
+        "title": "Donator",
+        "description": "Join institutions and donate on your assigned turns",
+        "features": [
+          "Browse institutions",
+          "Apply to join",
+          "See your turn schedule",
+          "Confirm donations"
+        ]
+      },
+      "cta": "Join as {{role}}"
+    },
+    "security": {
+      "title": "Secure & Trustworthy",
+      "subtitle": "Your data and transactions are protected with industry-standard security measures.",
+      "features": ["Encrypted Passwords", "JWT Authentication", "Role-Based Access"]
+    },
+    "cta": {
+      "title": "Ready to Make an Impact?",
+      "description": "Join Wasstet Khir today and become part of a community committed to coordinated charitable giving.",
+      "button": "Start Your Journey"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your Wasstet khir account",
+      "demoLabel": "Demo Credentials:",
+      "email": "Email:",
+      "password": "Password:",
+      "emailPlaceholder": "Email Address",
+      "passwordPlaceholder": "Password",
+      "submitButton": "Sign In",
+      "signingIn": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create Account",
+      "backToHome": "Back to Home",
+      "error": "Login failed",
+      "errorMessage": "An error occurred. Please try again."
+    },
+    "register": {
+      "title": "Join Wasstet khir",
+      "subtitle": "Create an account to get started",
+      "chooseRole": "Choose your role",
+      "institution": {
+        "title": "Institution",
+        "description": "Post needs and manage donor rotations"
+      },
+      "donator": {
+        "title": "Donator",
+        "description": "Join institutions and donate on your turn"
+      },
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "changeRole": "← Change Role",
+      "form": {
+        "fullName": "Full Name *",
+        "email": "Email Address *",
+        "description": "Description",
+        "location": "Location",
+        "password": "Password *",
+        "passwordHint": "Minimum 6 characters",
+        "institutionSubmit": "Create Institution Account",
+        "donatorSubmit": "Create Donator Account"
+      },
+      "validation": {
+        "fillAllFields": "Please fill in all required fields",
+        "passwordMismatch": "Passwords do not match",
+        "passwordLength": "Password must be at least 6 characters"
+      },
+      "error": "Registration failed",
+      "errorMessage": "An error occurred. Please try again."
+    }
+  },
+  "dashboard": {
+    "admin": {
+      "title": "Admin Dashboard",
+      "subtitle": "Manage institutions and oversee the platform",
+      "stats": {
+        "totalInstitutions": "Total Institutions",
+        "approved": "Approved",
+        "pending": "Pending"
+      },
+      "institutions": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "all": "All",
+        "noPending": "No pending institutions",
+        "noApproved": "No approved institutions",
+        "noInstitutions": "No institutions yet",
+        "registered": "Registered: {{date}}",
+        "approveButton": "Approve",
+        "rejectButton": "Reject"
+      }
+    },
+    "institution": {
+      "title": "Institution Dashboard",
+      "subtitle": "Manage your donators and coordinate weekly donations",
+      "location": "Location",
+      "editOnMap": "Edit on Map",
+      "setLocation": "Set Institution Location",
+      "coordinates": "Coordinates: {{lat}}, {{lng}}",
+      "stats": {
+        "activeDonators": "Active Donators",
+        "pendingApplications": "Pending Applications",
+        "thisWeekTurn": "This Week's Turn",
+        "totalDonations": "Total Donations"
+      },
+      "sections": {
+        "pendingApplications": {
+          "title": "Pending Applications",
+          "subtitle": "View and approve donator applications"
+        },
+        "activeDonators": "Active Donators",
+        "weeklyNeeds": {
+          "title": "Weekly Needs",
+          "subtitle": "Post and manage your weekly donation needs"
+        },
+        "donationTurns": {
+          "title": "Donation Turns",
+          "subtitle": "Assign and track donation rotation turns"
+        },
+        "reports": {
+          "title": "Reports",
+          "subtitle": "View donation history and analytics"
+        },
+        "comingSoon": "Coming Soon"
+      }
+    },
+    "donator": {
+      "title": "Donator Dashboard",
+      "subtitle": "Join institutions and donate on your scheduled turns",
+      "stats": {
+        "joinedInstitutions": "Joined Institutions",
+        "pendingApplications": "Pending Applications",
+        "nextTurn": "Next Turn",
+        "totalDonations": "Total Donations"
+      },
+      "sections": {
+        "browseInstitutions": {
+          "title": "Browse Institutions",
+          "subtitle": "Discover and apply to join charitable institutions"
+        },
+        "myTurnSchedule": {
+          "title": "My Turn Schedule",
+          "subtitle": "See when it's your turn to donate"
+        },
+        "confirmDonations": {
+          "title": "Confirm Donations",
+          "subtitle": "Accept turns and confirm donation completion"
+        },
+        "donationHistory": {
+          "title": "Donation History",
+          "subtitle": "View your donation records and impact"
+        }
+      },
+      "welcome": {
+        "title": "Welcome to Wasstet khir",
+        "description": "Your donator dashboard is ready! Soon, you'll be able to browse institutions, apply to join, and manage your donation schedule through our fair rotation system.",
+        "checkBack": "Check back soon for all the features that will help you make a difference."
+      }
+    }
+  },
+  "donations": {
+    "confirm": {
+      "title": "Confirm Donations",
+      "notApproved": "You haven't been approved to any institutions yet. Apply to institutions and wait for approval!",
+      "currentNeeds": "Current Needs",
+      "noNeeds": "No current needs specified",
+      "urgencyLabel": {
+        "regular": "Regular",
+        "urgent": "Urgent"
+      },
+      "modal": {
+        "title": "How would you like to donate?",
+        "donateAll": {
+          "label": "Donate all items",
+          "description": "Provide the complete list:"
+        },
+        "donateSpecific": {
+          "label": "Donate specific items",
+          "description": "Specify what you can donate"
+        },
+        "whatWillDonate": "What will you donate?",
+        "confirmButton": "Confirm Donation",
+        "cancelButton": "Cancel"
+      },
+      "decline": {
+        "title": "Are you sure?",
+        "description": "You're declining to donate: {{title}}",
+        "reminder": "Don't you want some Ajr?",
+        "motivation": "Helping those in need brings great spiritual rewards (Ajr). Consider donating if you can!",
+        "reconsider": "Reconsider - I'll donate",
+        "confirm": "Confirm Decline"
+      },
+      "options": {
+        "canDo": "can do",
+        "cantDo": "can't do",
+        "change": "Change Answer"
+      }
+    },
+    "history": {
+      "title": "Donation History & Impact",
+      "noHistory": "No donation history yet",
+      "noHistoryDescription": "Once you accept a donation turn, it will appear here.",
+      "trackingInfo": "Both ongoing and completed donations are tracked.",
+      "tabs": {
+        "completed": "Completed Donations",
+        "totalInstitutions": "Total Institutions"
+      },
+      "status": "Completed",
+      "whatNeeded": "What was needed:",
+      "whatsNeeded": "What's needed:",
+      "weekLabel": "Week {{week}}",
+      "impact": {
+        "title": "Your Impact",
+        "description": "Thank you for completing {{count}} donation(s)! You've made a difference in your community."
+      }
+    },
+    "turns": {
+      "title": "Donation Rotation",
+      "thisWeekDonor": "This Week's Donor",
+      "quickAssign": "Quick Assign Next Turn",
+      "rotationHistory": "Rotation History",
+      "noDonators": "No active donators yet. Approve donator applications to start rotation.",
+      "status": {
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "completed": "Completed",
+        "declined": "Declined"
+      }
+    }
+  },
+  "institutions": {
+    "browse": {
+      "title": "Browse Institutions",
+      "subtitle": "Find and apply to join charitable institutions",
+      "search": "Search by name, description, or location...",
+      "noInstitutions": "No institutions available yet",
+      "noResults": "No institutions match your search",
+      "location": "Location not specified",
+      "noDescription": "No description provided",
+      "donorCount": "{{count}} donor(s)",
+      "howItWorks": {
+        "title": "How It Works",
+        "description": "Browse approved institutions, select one that resonates with you, and apply to join..."
+      },
+      "actions": {
+        "apply": "Apply to Join",
+        "applying": "Applying...",
+        "approved": "Approved ✓",
+        "applied": "Applied ✓"
+      }
+    },
+    "map": {
+      "title": "Institutions Map",
+      "loading": "Loading map...",
+      "noInstitutions": "No institutions to display yet"
+    }
+  },
+  "components": {
+    "weeklyNeeds": {
+      "title": "Weekly Needs",
+      "addButton": "Add Need",
+      "editButton": "Edit Weekly Need",
+      "createButton": "Create Weekly Need",
+      "form": {
+        "title": "Title *",
+        "description": "Description *",
+        "urgency": "Urgency Level *",
+        "regular": "Quotidien (Regular)",
+        "urgent": "Urgent",
+        "saving": "Saving...",
+        "updateButton": "Update Need",
+        "createButton": "Create Need",
+        "cancelButton": "Cancel"
+      },
+      "empty": "No weekly needs posted yet. Create one to let donors know what you need.",
+      "labels": {
+        "urgent": "🔴 Urgent",
+        "regular": "🔵 Quotidien"
+      },
+      "actions": {
+        "edit": "Edit",
+        "delete": "Delete"
+      }
+    },
+    "myDonationTurn": {
+      "title": "My Donation Turn",
+      "noTurn": "You don't have a donation turn scheduled. Browse institutions and apply to join!",
+      "yourTurnAt": "Your Turn at",
+      "week": "Week",
+      "institutionNeeds": "Institution's Needs This Week",
+      "status": "Status",
+      "awaitingResponse": "Awaiting your response",
+      "accepted": "Accepted",
+      "question": "Will you donate this week?",
+      "actions": {
+        "yes": "Yes, I'll Donate",
+        "no": "Can't Donate"
+      },
+      "declineInfo": "If you decline, your turn will automatically be passed to the next donator.",
+      "howItWorks": {
+        "title": "How the Rotation Works",
+        "steps": [
+          "You're part of a rotation with other donators",
+          "When it's your turn, you'll receive a notification",
+          "You can accept to donate or decline to skip",
+          "If you decline, it automatically goes to the next donator",
+          "The rotation continues until all donators complete their turns"
+        ]
+      }
+    },
+    "donationTurns": {
+      "title": "Donation Rotation",
+      "thisWeekDonor": "This Week's Donor",
+      "quickAssign": "Quick Assign Next Turn",
+      "rotationHistory": "Rotation History",
+      "noDonators": "No active donators yet. Approve donator applications to start rotation.",
+      "status": {
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "completed": "Completed",
+        "declined": "Declined"
+      }
+    },
+    "locationPicker": {
+      "clickToSelect": "Click on the map to select location",
+      "selectedLocation": "Selected Location",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "saveButton": "Save Location",
+      "saving": "Saving...",
+      "error": "Error saving location"
+    },
+    "institutionWeeklyNeeds": {
+      "title": "Current Needs",
+      "urgent": "🔴 Urgent",
+      "regular": "🔵 Regular"
+    }
+  },
+  "errors": {
+    "404": {
+      "code": "404",
+      "title": "Oops! Page not found",
+      "goHome": "Return to Home"
+    },
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action."
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must not exceed {{max}} characters",
+    "passwordMismatch": "Passwords do not match",
+    "invalidPassword": "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+  },
+  "dates": {
+    "format": "en-US",
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ]
+  }
+}
