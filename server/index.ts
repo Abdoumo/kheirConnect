@@ -96,10 +96,12 @@ export function createServer() {
               isActive: true,
             });
 
-            // Check for confirmed donations
+            // Check for confirmed donations (only within the last 24 hours)
+            const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
             const confirmedDonation = await DonationConfirmation.findOne({
               institutionId: inst._id,
               status: "confirmed",
+              createdAt: { $gte: oneDayAgo }, // Only show green if confirmed in last 24 hours
             });
 
             // Check for active donation turns
@@ -111,7 +113,7 @@ export function createServer() {
             // Determine marker status
             let markerStatus = "blue"; // default: no order
             if (confirmedDonation) {
-              markerStatus = "green"; // donation served
+              markerStatus = "green"; // donation served (within last 24 hours)
             } else if (urgentNeeds) {
               markerStatus = "red"; // urgent donation needed
             } else if (nonUrgentNeeds) {
