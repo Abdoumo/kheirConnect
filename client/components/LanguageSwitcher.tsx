@@ -12,6 +12,7 @@ export default function LanguageSwitcher() {
 
   const languages = [
     { code: "en", label: "English" },
+    { code: "ar", label: "Arabic" },
     { code: "fr", label: "Français" }, // added French
   ];
 

@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import en from "./locales/en.json";
+import ar from "./locales/ar.json";
 import fr from "./locales/fr.json"; // fix: use 'fr'
 
 const resources = {
@@ -9,6 +10,9 @@ const resources = {
   },
   fr: {
     translation: fr, // add French here
+  },
+  ar: {
+    translation: ar, // add French here
   },
 };
 
