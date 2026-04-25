@@ -87,7 +87,7 @@ export default function Index() {
         </div>
 
         <div className="w-full">
-          <InstitutionsMap />
+          <InstitutionsMap token={localStorage.getItem("token") || ""} />
         </div>
       </section>
 

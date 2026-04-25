@@ -203,11 +203,61 @@ export const getInstitutionWeeklyNeeds: RequestHandler = async (
         title: need.title,
         description: need.description,
         urgency: need.urgency,
+        fullyDonated: need.fullyDonated,
         createdAt: need.createdAt,
       }))
     );
   } catch (error) {
     console.error("Get institution weekly needs error:", error);
     return res.status(500).json({ message: "Failed to fetch weekly needs" });
+  }
+};
+
+export const markNeedAsFullyDonated: RequestHandler = async (
+  req: AuthRequest,
+  res
+) => {
+  try {
+    const { needId } = req.params;
+    const userId = req.user?.userId;
+
+    if (!userId) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    const { Institution } = await import("../models/institution");
+    const { WeeklyNeed } = await import("../models/weekly-need");
+
+    const institution = await Institution.findOne({ userId });
+    if (!institution) {
+      return res.status(404).json({ message: "Institution not found" });
+    }
+
+    const weeklyNeed = await WeeklyNeed.findById(needId);
+    if (!weeklyNeed) {
+      return res.status(404).json({ message: "Weekly need not found" });
+    }
+
+    // Verify ownership
+    if (weeklyNeed.institutionId.toString() !== institution._id.toString()) {
+      return res.status(403).json({ message: "Forbidden" });
+    }
+
+    weeklyNeed.fullyDonated = true;
+    weeklyNeed.completedAt = new Date();
+    // Schedule deletion for 1 day later
+    weeklyNeed.scheduledForDeletion = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+    await weeklyNeed.save();
+
+    return res.json({
+      message: "Need marked as fully donated",
+      _id: weeklyNeed._id,
+      fullyDonated: weeklyNeed.fullyDonated,
+      completedAt: weeklyNeed.completedAt,
+    });
+  } catch (error) {
+    console.error("Mark need as fully donated error:", error);
+    return res.status(500).json({ message: "Failed to mark need as fully donated" });
   }
 };

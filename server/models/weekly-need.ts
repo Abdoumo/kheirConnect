@@ -24,6 +24,18 @@ const weeklyNeedSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    fullyDonated: {
+      type: Boolean,
+      default: false,
+    },
+    completedAt: {
+      type: Date,
+      default: null,
+    },
+    scheduledForDeletion: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,

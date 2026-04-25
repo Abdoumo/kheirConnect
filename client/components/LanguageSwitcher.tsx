@@ -18,6 +18,7 @@ export default function LanguageSwitcher() {
 
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
+    location.reload(); // Reload the page to apply the new language
   };
 
   return (

@@ -26,6 +26,7 @@ import {
   updateWeeklyNeed,
   deleteWeeklyNeed,
   getInstitutionWeeklyNeeds,
+  markNeedAsFullyDonated,
 } from "./routes/weekly-needs";
 import {
   getDonationTurns,
@@ -43,6 +44,7 @@ import {
 } from "./routes/donation-confirmations";
 import { authMiddleware, adminOnly } from "./middleware/auth";
 import { connectDB } from "./db";
+import { startCleanupJob } from "./utils/cleanup";
 
 export function createServer() {
   const app = express();
@@ -56,6 +58,9 @@ export function createServer() {
   connectDB().catch((error) => {
     console.error("Database connection failed:", error);
   });
+
+  // Start automatic cleanup job for old donated needs
+  startCleanupJob();
 
   // Public API routes
   console.log("[ROUTE] Registering /api/ping");
@@ -203,6 +208,8 @@ export function createServer() {
   app.delete("/api/institution/weekly-needs/:needId", authMiddleware, deleteWeeklyNeed);
   console.log("[ROUTE] Registering GET /api/institutions/:institutionId/weekly-needs");
   app.get("/api/institutions/:institutionId/weekly-needs", authMiddleware, getInstitutionWeeklyNeeds);
+  console.log("[ROUTE] Registering POST /api/institution/weekly-needs/:needId/mark-fully-donated");
+  app.post("/api/institution/weekly-needs/:needId/mark-fully-donated", authMiddleware, markNeedAsFullyDonated);
 
   // Donation turns routes
   console.log("[ROUTE] Registering GET /api/institution/donation-turns");
